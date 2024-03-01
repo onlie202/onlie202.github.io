@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://onlie202.github.io</id>
+    <title>Marshwallen</title>
+    <link href="https://onlie202.github.io" />
+    <updated>2024-03-01T07:44:29.000Z</updated>
+    <category term="Ubuntu" />
+    <category term="Others" />
+    <entry>
+        <id>https://onlie202.github.io/2024/03/01/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E8%AE%B0/</id>
+        <title>零碎小记</title>
+        <link rel="alternate" href="https://onlie202.github.io/2024/03/01/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E8%AE%B0/"/>
+        <content type="html">&lt;h2 id=&#34;markdown&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#markdown&#34;&gt;#&lt;/a&gt; Markdown&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Markdown 基本撰写和格式语法 &lt;a href=&#34;https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hexo&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hexo&#34;&gt;#&lt;/a&gt; Hexo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Hexo 基本指令 &lt;a href=&#34;https://hexo.io/zh-cn/docs/commands&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hexo 写作教程 &lt;a href=&#34;https://hexo.io/zh-cn/docs/writing&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Matery 主题文档 &lt;a href=&#34;https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Others" />
+        <updated>2024-03-01T07:44:29.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://onlie202.github.io/2024/03/01/Ubuntu-22-04-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+        <title>Ubuntu 22.04 常用命令</title>
+        <link rel="alternate" href="https://onlie202.github.io/2024/03/01/Ubuntu-22-04-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+        <content type="html">&lt;p&gt;本文记录 Ubuntu 22.04 下一些常用的命令&lt;/p&gt;
+&lt;h2 id=&#34;ssh&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh&#34;&gt;#&lt;/a&gt; SSH&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 连接到服务器&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;ssh&lt;/span&gt; marshwallen@172.20.20.144
+&lt;span class=&#34;token comment&#34;&gt;# 从服务器下载文件到指定目录（文件或文件夹）&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;scp&lt;/span&gt; root@127.20.36.88:~/test.zip ~/Desktop
+&lt;span class=&#34;token function&#34;&gt;scp&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-r&lt;/span&gt; root@127.20.36.88:~/test ~/Desktop
+&lt;span class=&#34;token comment&#34;&gt;# 查看历史连接用户&lt;/span&gt;
+&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /var/log
+last
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;文件操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件操作&#34;&gt;#&lt;/a&gt; 文件操作&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 压缩&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;tar&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-vcf&lt;/span&gt; test.tar ./test
+&lt;span class=&#34;token comment&#34;&gt;# 解压&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;tar&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-xvf&lt;/span&gt; test.tar ./test
+&lt;span class=&#34;token comment&#34;&gt;# 列出文件夹及大小&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-l&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;du&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-h&lt;/span&gt; --max-depth&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;环境变量&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#环境变量&#34;&gt;#&lt;/a&gt; 环境变量&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 修改&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; ~/.bashrc
+&lt;span class=&#34;token comment&#34;&gt;# 应用修改&lt;/span&gt;
+&lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; ~/.bashrc
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;应用安装-更新&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#应用安装-更新&#34;&gt;#&lt;/a&gt; 应用安装、更新&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# apt安装&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; xxx
+&lt;span class=&#34;token comment&#34;&gt;# apt卸载&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt-get&lt;/span&gt; remove xxx
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt-get&lt;/span&gt; autoremove
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;conda&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#conda&#34;&gt;#&lt;/a&gt; Conda&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 创建环境&lt;/span&gt;
+conda create &lt;span class=&#34;token parameter variable&#34;&gt;-n&lt;/span&gt; xxx &lt;span class=&#34;token assign-left variable&#34;&gt;python&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3.7&lt;/span&gt;
+&lt;span class=&#34;token comment&#34;&gt;# 激活环境&lt;/span&gt;
+conda activate xxx
+&lt;span class=&#34;token comment&#34;&gt;# 查看conda列表&lt;/span&gt;
+conda &lt;span class=&#34;token function&#34;&gt;env&lt;/span&gt; list
+&lt;span class=&#34;token comment&#34;&gt;# 删除环境&lt;/span&gt;
+conda &lt;span class=&#34;token function&#34;&gt;env&lt;/span&gt; remove &lt;span class=&#34;token parameter variable&#34;&gt;-n&lt;/span&gt; xxx
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;screen&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#screen&#34;&gt;#&lt;/a&gt; Screen&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 创建终端&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; 或 &lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-S&lt;/span&gt; xxx
+&lt;span class=&#34;token comment&#34;&gt;# 查看终端&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-ls&lt;/span&gt;
+&lt;span class=&#34;token comment&#34;&gt;# 恢复终端&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-r&lt;/span&gt; xxx
+&lt;span class=&#34;token comment&#34;&gt;# 杀死终端&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-S&lt;/span&gt; xxx &lt;span class=&#34;token parameter variable&#34;&gt;-X&lt;/span&gt; quit 
+&lt;span class=&#34;token comment&#34;&gt;# 杀死前20个screen&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; -ls&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;NR&gt;=2&amp;amp;&amp;amp;NR&amp;lt;=6&amp;#123;print $1&amp;#125;&#39;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;#123;print &#34;screen -S &#34;$1&#34; -X quit&#34;&amp;#125;&#39;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;sh&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Ubuntu" />
+        <updated>2024-03-01T07:09:44.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://onlie202.github.io/2024/03/01/Ubuntu-22-04-%E7%BB%B4%E6%8A%A4%E5%B0%8F%E8%AE%B0/</id>
+        <title>Ubuntu 22.04 维护小记</title>
+        <link rel="alternate" href="https://onlie202.github.io/2024/03/01/Ubuntu-22-04-%E7%BB%B4%E6%8A%A4%E5%B0%8F%E8%AE%B0/"/>
+        <content type="html">&lt;h2 id=&#34;重装-nvidia-显卡驱动&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重装-nvidia-显卡驱动&#34;&gt;#&lt;/a&gt; 重装 NVIDIA 显卡驱动&lt;/h2&gt;
+&lt;h3 id=&#34;问题背景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#问题背景&#34;&gt;#&lt;/a&gt; 问题背景&lt;/h3&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;Failed to initialize NVML: Driver/library version mismatch&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;故障原因：通过 apt 命令安装或更新的显卡驱动版本号与原驱动版本号不一致而导致掉驱动&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看已安装的显卡驱动&lt;/span&gt;
+dpkg &lt;span class=&#34;token parameter variable&#34;&gt;-l&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; nvidia
+&lt;span class=&#34;token comment&#34;&gt;# 查看本地使用的显卡驱动版本信息&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; /proc/driver/nvidia/version
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;正常情况下，两者查到的版本号理应一致。&lt;/p&gt;
+&lt;h3 id=&#34;解决方案&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解决方案&#34;&gt;#&lt;/a&gt; 解决方案&lt;/h3&gt;
+&lt;p&gt;可通过卸载并重装显卡驱动解决。&lt;/p&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 1 卸载旧版驱动&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt-get&lt;/span&gt; purge nvidia*
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt-get&lt;/span&gt; autoremove
+
+&lt;span class=&#34;token comment&#34;&gt;# 2 添加 NVIDIA 的ppa源&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; add-apt-repository ppa:graphics-drivers/ppa
+
+&lt;span class=&#34;token comment&#34;&gt;# 3 安装对应的显卡驱动（如535）&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt-get&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; nvidia-driver-535
+
+&lt;span class=&#34;token comment&#34;&gt;# 4 重启系统&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;reboot&lt;/span&gt;
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;参考文章&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考文章&#34;&gt;#&lt;/a&gt; 参考文章&lt;/h3&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://blog.csdn.net/ykf173/article/details/116230368&#34;&gt;https://blog.csdn.net/ykf173/article/details/116230368&lt;/a&gt;&lt;/p&gt;
+</content>
+        <category term="Ubuntu" />
+        <updated>2024-03-01T06:52:29.000Z</updated>
+    </entry>
+</feed>

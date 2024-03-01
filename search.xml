@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>零碎小记</title>
+      <link href="/2024/03/01/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E8%AE%B0/"/>
+      <url>/2024/03/01/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="markdown"><a class="markdownIt-Anchor" href="#markdown">#</a> Markdown</h2><ul><li>GitHub Markdown 基本撰写和格式语法 <a href="https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">[Link]</a></li></ul><h2 id="hexo"><a class="markdownIt-Anchor" href="#hexo">#</a> Hexo</h2><ul><li>Hexo 基本指令 <a href="https://hexo.io/zh-cn/docs/commands">[Link]</a></li><li>Hexo 写作教程 <a href="https://hexo.io/zh-cn/docs/writing">[Link]</a></li><li>Matery 主题文档 <a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">[Link]</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Others </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu 22.04 常用命令</title>
+      <link href="/2024/03/01/Ubuntu-22-04-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2024/03/01/Ubuntu-22-04-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<p>本文记录 Ubuntu 22.04 下一些常用的命令</p><h2 id="ssh"><a class="markdownIt-Anchor" href="#ssh">#</a> SSH</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 连接到服务器</span><span class="token function">ssh</span> marshwallen@172.20.20.144<span class="token comment"># 从服务器下载文件到指定目录（文件或文件夹）</span><span class="token function">scp</span> root@127.20.36.88:~/test.zip ~/Desktop<span class="token function">scp</span> <span class="token parameter variable">-r</span> root@127.20.36.88:~/test ~/Desktop<span class="token comment"># 查看历史连接用户</span><span class="token builtin class-name">cd</span> /var/loglast<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作">#</a> 文件操作</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 压缩</span><span class="token function">tar</span> <span class="token parameter variable">-vcf</span> test.tar ./test<span class="token comment"># 解压</span><span class="token function">tar</span> <span class="token parameter variable">-xvf</span> test.tar ./test<span class="token comment"># 列出文件夹及大小</span><span class="token function">ls</span> <span class="token parameter variable">-l</span><span class="token function">du</span> <span class="token parameter variable">-h</span> --max-depth<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="环境变量"><a class="markdownIt-Anchor" href="#环境变量">#</a> 环境变量</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改</span><span class="token function">vim</span> ~/.bashrc<span class="token comment"># 应用修改</span><span class="token builtin class-name">source</span> ~/.bashrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="应用安装-更新"><a class="markdownIt-Anchor" href="#应用安装-更新">#</a> 应用安装、更新</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># apt安装</span><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> xxx<span class="token comment"># apt卸载</span><span class="token function">sudo</span> <span class="token function">apt-get</span> remove xxx<span class="token function">sudo</span> <span class="token function">apt-get</span> autoremove<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="conda"><a class="markdownIt-Anchor" href="#conda">#</a> Conda</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建环境</span>conda create <span class="token parameter variable">-n</span> xxx <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.7</span><span class="token comment"># 激活环境</span>conda activate xxx<span class="token comment"># 查看conda列表</span>conda <span class="token function">env</span> list<span class="token comment"># 删除环境</span>conda <span class="token function">env</span> remove <span class="token parameter variable">-n</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="screen"><a class="markdownIt-Anchor" href="#screen">#</a> Screen</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建终端</span><span class="token function">screen</span> 或 <span class="token function">screen</span> <span class="token parameter variable">-S</span> xxx<span class="token comment"># 查看终端</span><span class="token function">screen</span> <span class="token parameter variable">-ls</span><span class="token comment"># 恢复终端</span><span class="token function">screen</span> <span class="token parameter variable">-r</span> xxx<span class="token comment"># 杀死终端</span><span class="token function">screen</span> <span class="token parameter variable">-S</span> xxx <span class="token parameter variable">-X</span> quit <span class="token comment"># 杀死前20个screen</span><span class="token function">screen</span> -ls<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'NR>=2&amp;&amp;NR&lt;=6&#123;print $1&#125;'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'&#123;print "screen -S "$1" -X quit"&#125;'</span><span class="token operator">|</span><span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu 22.04 维护小记</title>
+      <link href="/2024/03/01/Ubuntu-22-04-%E7%BB%B4%E6%8A%A4%E5%B0%8F%E8%AE%B0/"/>
+      <url>/2024/03/01/Ubuntu-22-04-%E7%BB%B4%E6%8A%A4%E5%B0%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="重装-nvidia-显卡驱动"><a class="markdownIt-Anchor" href="#重装-nvidia-显卡驱动">#</a> 重装 NVIDIA 显卡驱动</h2><h3 id="问题背景"><a class="markdownIt-Anchor" href="#问题背景">#</a> 问题背景</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Failed to initialize NVML: Driver/library version mismatch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>故障原因：通过 apt 命令安装或更新的显卡驱动版本号与原驱动版本号不一致而导致掉驱动</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看已安装的显卡驱动</span>dpkg <span class="token parameter variable">-l</span> <span class="token operator">|</span> <span class="token function">grep</span> nvidia<span class="token comment"># 查看本地使用的显卡驱动版本信息</span><span class="token function">cat</span> /proc/driver/nvidia/version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>正常情况下，两者查到的版本号理应一致。</p><h3 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案">#</a> 解决方案</h3><p>可通过卸载并重装显卡驱动解决。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1 卸载旧版驱动</span><span class="token function">sudo</span> <span class="token function">apt-get</span> purge nvidia*<span class="token function">sudo</span> <span class="token function">apt-get</span> autoremove<span class="token comment"># 2 添加 NVIDIA 的ppa源</span><span class="token function">sudo</span> add-apt-repository ppa:graphics-drivers/ppa<span class="token comment"># 3 安装对应的显卡驱动（如535）</span><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> nvidia-driver-535<span class="token comment"># 4 重启系统</span><span class="token function">sudo</span> <span class="token function">reboot</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="参考文章"><a class="markdownIt-Anchor" href="#参考文章">#</a> 参考文章</h3><p>[1] <a href="https://blog.csdn.net/ykf173/article/details/116230368">https://blog.csdn.net/ykf173/article/details/116230368</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

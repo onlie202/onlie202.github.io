@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://onlie202.github.io</id>
+    <title>Marshwallen • Posts by &#34;others&#34; tag</title>
+    <link href="https://onlie202.github.io" />
+    <updated>2024-03-01T07:44:29.000Z</updated>
+    <category term="Ubuntu" />
+    <category term="Others" />
+    <entry>
+        <id>https://onlie202.github.io/2024/03/01/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E8%AE%B0/</id>
+        <title>零碎小记</title>
+        <link rel="alternate" href="https://onlie202.github.io/2024/03/01/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E8%AE%B0/"/>
+        <content type="html">&lt;h2 id=&#34;markdown&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#markdown&#34;&gt;#&lt;/a&gt; Markdown&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Markdown 基本撰写和格式语法 &lt;a href=&#34;https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hexo&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hexo&#34;&gt;#&lt;/a&gt; Hexo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Hexo 基本指令 &lt;a href=&#34;https://hexo.io/zh-cn/docs/commands&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hexo 写作教程 &lt;a href=&#34;https://hexo.io/zh-cn/docs/writing&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Matery 主题文档 &lt;a href=&#34;https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Others" />
+        <updated>2024-03-01T07:44:29.000Z</updated>
+    </entry>
+</feed>
