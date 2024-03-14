@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://onlie202.github.io</id>
+    <title>Marshwallen • Posts by &#34;nginx&#34; tag</title>
+    <link href="https://onlie202.github.io" />
+    <updated>2024-03-14T08:20:03.000Z</updated>
+    <category term="Nginx" />
+    <category term="Android" />
+    <category term="Flutter" />
+    <category term="Ubuntu" />
+    <category term="Others" />
+    <entry>
+        <id>https://onlie202.github.io/2024/03/14/Nginx/</id>
+        <title>Nginx小记</title>
+        <link rel="alternate" href="https://onlie202.github.io/2024/03/14/Nginx/"/>
+        <content type="html">&lt;h1 id=&#34;nginx&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#nginx&#34;&gt;#&lt;/a&gt; Nginx&lt;/h1&gt;
+&lt;h2 id=&#34;安装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装&#34;&gt;#&lt;/a&gt; 安装&lt;/h2&gt;
+&lt;p&gt;sudo apt install nginx&lt;/p&gt;
+&lt;h2 id=&#34;项目路径&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#项目路径&#34;&gt;#&lt;/a&gt; 项目路径&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;路径&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;/etc/nginx/&lt;/td&gt;
+&lt;td&gt;文件夹&lt;/td&gt;
+&lt;td&gt;nginx 的主要配置目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/etc/nginx/nginx.conf&lt;/td&gt;
+&lt;td&gt;文件&lt;/td&gt;
+&lt;td&gt;nginx 的主配置文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/etc/nginx/sites-available&lt;/td&gt;
+&lt;td&gt;文件夹&lt;/td&gt;
+&lt;td&gt;vhost 的配置存放目录（注意是存放）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/etc/nginx/sites-enabled&lt;/td&gt;
+&lt;td&gt;文件夹&lt;/td&gt;
+&lt;td&gt;vhost 的配置生效目录（注意是生效）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 执行nginx配置文件的检测（此命令还有一个用法是当不知道nginx主配置在什么路径下时执行会输出配置文件路径）&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; nginx &lt;span class=&#34;token parameter variable&#34;&gt;-t&lt;/span&gt; 
+
+&lt;span class=&#34;token comment&#34;&gt;# 重载nginx配置文件，一般用于修改配置文件后让配置生效&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; nginx &lt;span class=&#34;token parameter variable&#34;&gt;-s&lt;/span&gt; reload 
+
+&lt;span class=&#34;token comment&#34;&gt;# WSL下可能需要这种形式重启/重载/启动/关闭&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;service&lt;/span&gt; nginx restart&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;stop&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;start&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;reload 
+&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Nginx" />
+        <updated>2024-03-14T08:20:03.000Z</updated>
+    </entry>
+</feed>

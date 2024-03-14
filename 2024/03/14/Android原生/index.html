@@ -1,0 +1,1643 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Android原生, Marshwallen">
+    <meta name="description" content="# Android 原生相关知识
+# 第一部分：Android 四大组件
+# 1、Activity
+
+请介绍 Activity 的生命周期？⭐⭐⭐⭐⭐
+
+整个生命周期： onCreate ()-&amp;gt;onStart ()-&amp;gt;onRe">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Android原生 | Marshwallen</title>
+    <link rel="icon" type="image/png" href="/medias/cat.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/cat.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Marshwallen</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/cat.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Marshwallen</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://developer.android.google.cn/images/cluster-illustrations/interop.svg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Android原生</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Android/">
+                                <span class="chip bg-color">Android</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-03-14
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="android原生相关知识"><a class="markdownIt-Anchor" href="#android原生相关知识">#</a> Android 原生相关知识</h1>
+<h2 id="第一部分android-四大组件"><a class="markdownIt-Anchor" href="#第一部分android-四大组件">#</a> 第一部分：Android 四大组件</h2>
+<h3 id="1-activity"><a class="markdownIt-Anchor" href="#1-activity">#</a> 1、Activity</h3>
+<blockquote>
+<p>请介绍 Activity 的生命周期？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>整个生命周期： onCreate ()-&gt;onStart ()-&gt;onResume ()-&gt;onPause ()-&gt;onStop ()-&gt;onDestory ()</p>
+<blockquote>
+<p>请介绍 Activity 的 4 种启动模式？⭐⭐⭐⭐</p>
+</blockquote>
+<p>四大启动模式：标准模式 Standard、栈顶复用模式 SingleTop、栈内复用模式 SingleTask、单例模式 SingleInstance</p>
+<blockquote>
+<p>请说下切换横竖屏时 Activity 的生命周期变化？⭐⭐⭐⭐</p>
+</blockquote>
+<p>生命周期：onPause ()-&gt;onSaveInstanceState ()-&gt; onStop ()-&gt;onDestroy ()-&gt;onCreate ()-&gt;onStart ()-&gt;onRestoreInstanceState-&gt;onResume ()</p>
+<h3 id="2-service"><a class="markdownIt-Anchor" href="#2-service">#</a> 2、Service</h3>
+<blockquote>
+<p>请介绍 Service 的启动方式，启动方式的区别？⭐⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>Service 可以和其他的组件形成一定联系，通过传达信息来联系多个组件共同执行某个操作<br>
+启动方式：startService () 和 bindService ()<br>
+ 区别：<br>
+1、startService () 的生命周期不再受启动它的组件的影响，它可以在后台无限期地运行，直到 ServiceA 自己调用 stopSelf () 或者其他的组件手动调用 stopService (ServiceA) 时 ServiceA 才会停止<br>
+ 2、对于 bindService ()，当 Activity 调用 unBindService 或者 Activity 挂掉，则服务会停止</p>
+<blockquote>
+<p>请介绍 Service 的生命周期？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、startService () 生命周期顺序：onCreate-&gt;onStartCommand-&gt;onDestroy<br>
+2、bindService () 生命周期顺序：onCreate-&gt;onBind-&gt;onUnBind-&gt;onDestroy</p>
+<blockquote>
+<p>Activity、Service、intent 之间的联系？⭐⭐⭐⭐</p>
+</blockquote>
+<p>Activity 负责用户交互界面的显示和交互逻辑的实现，Service 则负责后台任务的处理。而 Intent 意为 “意图”，像一座桥梁一样，负责 Activity 和 Service 之间的数据传递</p>
+<blockquote>
+<p>在 Activity 和 Service 中创建 Thread 的区别？（进阶题）⭐⭐⭐</p>
+</blockquote>
+<p>1、在 Activity 中创建：该线程负责完成该 Activity 的某个特殊任务，特别是耗时的任务，等 Activity 被销毁后，线程就没有生存的意义了，也应该销毁<br>
+ 2、在 Service 中创建：一般在 Service 的线程是为了长期存在于后台，完成某种特殊任务。只要服务没有挂掉，该线程就一直在后台跑。比如在 Service 中保持与服务器的长连接</p>
+<blockquote>
+<p>android 进程的优先级？以及如何保证 Service 不被杀死？（进阶题）⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、优先级：<br>
+（1）前台进程 -&gt;<br>
+（2）可见进程（对用户可见，但不能与用户交互的 Activity 或者绑定在其上面的 Service）-&gt;<br>
+（3）服务进程 -&gt;<br>
+（4）后台进程（运行着执行 onStop 方法而停止的程序）-&gt;<br>
+（5）空进程<br>
+ 2、保证 Service 不被杀死：<br>
+（1）使用自定义系统服务：自定义系统服务原则上是不会被系统杀死的，因此，一些重要的服务可以考虑用自定义系统服务来实现<br>
+（2）使用系统服务来监控：先弄一个白名单，记录需要监控的应用的包名，再自定义一个系统服务，监控系统里某个应用被杀死，如果该应用在白名单上，则重新拉起应用<br>
+（3）等等</p>
+<h3 id="3-broadcast"><a class="markdownIt-Anchor" href="#3-broadcast">#</a> 3、BroadCast</h3>
+<blockquote>
+<p>请介绍 Android 里广播的分类？⭐⭐⭐⭐</p>
+</blockquote>
+<p>广播：广泛运用的在应用程序之间传输信息的机制。主要有两大角色：广播接收者和广播发送者<br>
+类型：<br>
+1、普通广播（Normal Broadcast）：完全异步执行的广播<br>
+ 2、系统广播（System Broadcast）：涉及系统基础操作<br>
+ 3、有序广播（Ordered Broadcast）：同步执行的广播，按广播接收者的优先级由高到低排序，轮流接收到广播<br>
+ 4、粘性广播（Sticky Broadcast）：Android5.0 之后已经废弃<br>
+ 5、本地广播（Local Broadcast）：用于应用内部传递消息，比 broadcastReceiver 更加高效和安全</p>
+<blockquote>
+<p>程序 A 能否接收到程序 B 的广播？⭐⭐⭐</p>
+</blockquote>
+<p>只要使用全局的 BroadCastRecevier 能进行跨进程通信，不过只能被动接收广播</p>
+<blockquote>
+<p>请列举广播注册的方式，并简单描述其区别？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、静态注册：在 AndroidManifest.xml 清单文件里直接声明<br>
+ 2、代码运行到了才注册广播。最好在 Activity 的 onResume () 注册、onPause () 注销。一旦忘记注销，那么就会造成内存泄露</p>
+<h3 id="4-内容提供者"><a class="markdownIt-Anchor" href="#4-内容提供者">#</a> 4、内容提供者</h3>
+<blockquote>
+<p>什么是内容提供者？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>Intent 传递数据大小的限制大概在 1M 左右，超过这个限制就会静默崩溃。因此我们就可以通过 ContentProvider 进行进程间的数据传递，也就是 ContentProvider 是一种进程间的数据传递的方式<br>
+ Android 数据存储的方式有：文件，数据库，网络，SharePreferences，ContentProvider<br>
+ContentProvider 更准确来说只是一个中间者的身份，真正存储数据的是数据库和文件等形式</p>
+<blockquote>
+<p>简单介绍下 ContentProvider 是如何实现数据共享的（原理）？⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>说说 ContentProvider、ContentResolver、ContentObserver 之间的关系？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、ContentProvider：内容提供者，主要作用就是管理数据，比如最常见的增删改查操作，同时为这些数据的访问提供了统一的接口（用 URL 实现），实现进程间的数据传递和共享<br>
+ 2、ContentResolver：内容解析者，ContentResolver 可以为不同 URI 操作不同的 ContentProvider 中的数据，外部进程可以通过 ContentResolver 与 ContentProvider 进行交互<br>
+ 3、ContentObserver：内容观察者，观察 ContentProvider 中的数据变化，有变化的时候执行特定操作。本人用的最多的是监听 Settings 数据库的变化。由于 ContentObserver 的生命周期不同步于 Activity 和 Service 等，因此，在不需要时，需要手动的调用 unregisterContentObserver () 去取消注册</p>
+<blockquote>
+<p>说说如何创建自己应用的内容提供者的使用场景。⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>说说 ContentProvider 的权限管理。⭐⭐⭐</p>
+</blockquote>
+<p>读写分离，权限控制 - 精确到表级，URL 控制</p>
+<blockquote>
+<p>为什么要使用通过 ContentResolver 类从而与 ContentProvider 类进行交互，而不直接访问 ContentProvider 类？⭐⭐⭐</p>
+</blockquote>
+<p>ContentResolver 统一管理不同 ContentProvider 间的操作。因为同一个进程可能有多个 ContentProvider，如果每一个都需要单独去管理，那么花费的成本自然很高</p>
+<blockquote>
+<p>ContentProvider 的底层是采用 Android 中的 Binder 机制，既然已经有了 binder 实现了进程间通信了为什么还会需要 contentProvider？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、从架构层次看，为了降低业务层和数据层的耦合程度，我们希望数据访问层也可以有一个个独立的组件，对业务层提供统一调用接口，对数据层可以针对不同数据存储类型有不同的实现方式<br>
+ 2、从传输效率看，不同的进程可以通过 Binder、Intent 去传输数据，但如果数据量大的时候，就都不适用了。而 ContentProvider 进行数据传输的方式是采用匿名共享内存机制，众所周知，共享内存可以高效地传递大量数据</p>
+<h2 id="第二部分android基础知识篇"><a class="markdownIt-Anchor" href="#第二部分android基础知识篇">#</a> 第二部分：Android 基础知识篇</h2>
+<h3 id="5-context"><a class="markdownIt-Anchor" href="#5-context">#</a> 5、Context</h3>
+<blockquote>
+<p>谈谈你对 Activity 的 Context 的认识？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、安卓的应用模型是基于组件的应用设计模式，比如 Activity 和 Service 这些组件在运行的时候，都需要一个完整的 Android 工程环境。那么在代码里，这个 “环境” 由谁提供？那自然就是 Context 类<br>
+ 2、只有 Activity 需要指定主题，而 Service 和 Application 是不需要使用主题的。因此才有 Actvity 继承 ContextThemeWrapper，而 Service 和 Application 直接继承 ContextWrapper。ContextThemeWrapper 继承 ContextWrapper 继承 Context</p>
+<blockquote>
+<p>Application 和 Activity, Context 的区别？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>getApplication () 和 getApplicationContext () 的区别？⭐⭐⭐⭐</p>
+</blockquote>
+<p>获取 Context 的方法<br>
+返回的结果是同样的结果，但 getApplication () 是获取应用实例，只有在 Activity 和 Service 中可以调用，而 getApplicationContext () 含义是为了获取的是整个应用程序的工程环境，可以在 Broadcast Receiver 和 Content Provider 中调用</p>
+<blockquote>
+<p>context 错误用法有哪些？⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>如何正确使用 Context，如何获取 Context？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、直接传入 activity 本身，因为继承了 Context<br>
+2、getApplication () 和 getApplicationContext ()<br>
+ 3、view.getContext，这个 context 对象一般是该 view 所在的 Activity 实例</p>
+<blockquote>
+<p>一个应用程序有几个 Context？ ⭐⭐⭐⭐</p>
+</blockquote>
+<p>应用 Context 数量 = Activity 数 + Service 数 + 1</p>
+<h3 id="6-intent"><a class="markdownIt-Anchor" href="#6-intent">#</a> 6、Intent</h3>
+<blockquote>
+<p>什么是 Intent？ ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>用于 Android 同个应用程序中各个组件之间的交互，或者不同应用程序之间的交互。可以用来表明当前组件的思想和意图，比如想执行某个动作，想发送某些数据等等</p>
+<blockquote>
+<p>显式 Intent 和隐式 Intent 的区别？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、显式指定意图，系统就会根据我们指定的意图，打开我们想打开的 Activity<br>
+2、不指定特定的意图，而是通过清单文件里，每个 Activity 节点下事先配置好的（也就是 “Intent 过滤器”），由系统根据我们设定的 Intent，从系统所有 Activity 中选出最符合的我们要求的 Activity</p>
+<blockquote>
+<p>在隐式启动中 Intent 可以设置多个 action, 多个 category 吗？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、一个 Intent 只有一个 action，但可以有多个 category，只有当 action 和所有 category 和某个<intent-filter>都同时匹配，才算匹配成功。<br>
+2、一个<intent-filter>可以设置一个或多个<action>，当 Intent 能和<intent-filter>的任意一个 action 匹配就算匹配成功；<br>
+3、一个<intent-filter>可以设置一个或多个<category>，只有当 Intent 能和<intent-filter>的所有 category 匹配才算匹配成功；</p>
+<blockquote>
+<p>隐式 Intent 的匹配规则？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、如果没有指定 category，系统会默认设置为 android.intent.category.DEFAULT<br>
+2、如果不希望自己的组件，如自定义的 XXXActivity 被其他应用程序调用，则清单文件中，XXXActivity 下面不要声明 <intent-filter> ，并且将该组件的 exported 属性设置为 false<br>
+3、其他如上</p>
+<blockquote>
+<p>Activity 之间传递数据的方式 Intent 是否有大小限制，如果传递的数据量偏大，有哪些方案？⭐⭐⭐</p>
+</blockquote>
+<p>大概在 1M 左右，超过这个限制就会静默崩溃。偏大可以采用 ContentProvider（应用间）或文件缓存（应用内）</p>
+<h3 id="7-8-handler异步消息机制"><a class="markdownIt-Anchor" href="#7-8-handler异步消息机制">#</a> 7、8、Handler 异步消息机制</h3>
+<blockquote>
+<p>请介绍下 Handler 消息机制 ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>Handler 会发送出一个一个消息，同时系统会根据每一个不同的消息进行不同的处理流程<br>
+ 1、Handler：主要作用是发送信息以及处理信息（为何发送还自己处理？），其中发送的信息叫作 Message，可以传递数据哦；<br>
+2、MessageQueue：消息队列，由一个一个 Message 汇成，遵循先进先出规则，由 Looper 进行管理；<br>
+3、Looper：从 MessageQueue 里读取消息，并按消息分发机制分配到目标 Handler 进行消息处理。</p>
+<blockquote>
+<p>Handler 引起的内存泄露原因以及最佳解决方案 ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>原因：Handler 一般是作为 Activity 的内部类，可以发送延迟执行的消息，如果在延迟阶段，我们把 Activity 关掉，此时因为该 Activity 还被 Handler 这个内部类所持有，导致 Activity 无法被回收，没有真正退出并释放相关资源，因此就造成内存泄漏<br>
+解决方案：将 Handler 定义成静态的内部类，在内部持有 Activity 的弱引用，并在 Acitivity 的 onDestroy () 中调用 handler.removeCallbacksAndMessages (null) 及时移除所有消息。更进一步是建议将 Handler 抽离出来作为 BaseHandler，然后每个 Activity 需要用到 Handler 的时候，就去继承 BaseHandler</p>
+<blockquote>
+<p>为什么我们能在主线程直接使用 Handler，而不需要创建 Looper ？ ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>ActivityThread.main () 方法中调用了 Looper.prepareMainLooper () ，该方法调用 prepare () 创建 Looper。因此主线程不是不需要创建 Looper，而是系统帮我们做了</p>
+<blockquote>
+<p>Handler、Thread 和 HandlerThread 的差别 ⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、Handler：本文所学的知识，是 Android 的一种异步消息机制，负责发送和处理消息，可实现子线程和主线程的消息通讯<br>
+ 2、Thread：Java 的一个多线程类，是 Java 进程中最小执行运算单位，用于给子类继承，创建线程<br>
+ 3、HandlerThread：从名字看就知道是由前面两者结合起来的。可以理解为 “一个继承自 Thread 的 Handler 类”，因此本质上和父类一样是 Thread，但其内部直接实现了 Looper，我们可以直接在 HandlerThread 里面直接使用 Handler 消息机制。减少了手动调用 Looper.prepare () 和 Looper.loop () 这些方法</p>
+<blockquote>
+<p>子线程中怎么使用 Handler？ ⭐⭐⭐⭐</p>
+</blockquote>
+<p>直接使用 HandlerThread 类</p>
+<blockquote>
+<p>为什么在子线程中创建 Handler 会抛异常？⭐⭐⭐⭐</p>
+</blockquote>
+<p>不能在还没有调用 Looper.prepare () 方法的线程中创建 Handler</p>
+<blockquote>
+<p>Handler 里藏着的 Callback 能干什么？⭐⭐⭐</p>
+</blockquote>
+<p>从消息队列获取到信息后，需要分配给对应的 Handler 去处理，总共有 3 种优先级。<br>
+1、handleCallback (msg)：Message 里自带的 callback 优先级最高；对应 Handler 的 post 方法；<br>
+2、mCallback.handleMessage (msg)：也就是 Handler.Callback 写法；<br>
+3、handleMessage (msg)：重写 handlerMessage () 方法，优先级最低；</p>
+<blockquote>
+<p>Handler 的 send 和 post 的区别？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、post 是属于 sendMessage 的一种赋值 callback 的特例<br>
+ 2、post 和 sendMessage 本质上没有区别，两种都会涉及到内存泄露的问题<br>
+ 3、post 方式配合 lambda 表达式写法更精简</p>
+<blockquote>
+<p>创建 Message 实例的最佳方式 ⭐⭐⭐</p>
+</blockquote>
+<p>1、尽量复用 Message ，减少内存消耗：<br>
+2、通过 Message 的静态方法 Message.obtain ()； 通过 Handler 的公有方法 handler.obtainMessage ()</p>
+<blockquote>
+<p>Message 的插入以及回收是如何进行的，如何实例化一个 Message 呢？⭐⭐⭐</p>
+</blockquote>
+<p>1、Message 往 MessageQueue 插入消息时，会根据 when 字段（相对时间）来判断插入的顺序<br>
+ 2、消息执行完成之后，会进行回收消息，回收消息可见 2.3 小节 recycleUnchecked () 函数，只是 Message 的成员变量设置为 0 或者 null<br>
+3、使用 Message.obtain 方法，这是从缓存消息池链表里直接获取的实例，可以避免 Message 的重复创建</p>
+<blockquote>
+<p>妙用 Looper 机制，或者你知道 Handler 机制的其他用途吗？⭐⭐⭐</p>
+</blockquote>
+<p>1、将 Runnable post 到主线程执行；<br>
+2、利用 Looper 判断当前线程是否是主线程；</p>
+<blockquote>
+<p>Looper.loop () 死循环一直运行是不是特别消耗 CPU 资源呢？不会造成应用卡死吗？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>Android 应用程序的主线程在进入消息循环过程前，会在内部创建一个 Linux 管道，MessageQueue 没有消息时，便阻塞在 nativePollOnce () 方法里，此时主线程会释放 CPU 资源进入休眠状态，因此并不特别消耗 CPU 资源</p>
+<blockquote>
+<p>MessageQueue 中如何等待消息？为何不使用 Java 中的 wait/notify 来实现阻塞等待呢？⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>你知道延时消息的原理吗？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、信息插入会根据 when 属性（需要处理消息的相对时间）进行排序<br>
+ 2、取消息处理时，如果时间还没到，就休眠到指定时间；如果当前时间已经到了，就返回这个消息交给 Handler 去分发，这样就实现处理延时消息了</p>
+<blockquote>
+<p>handler postDelay 这个延迟是怎么实现的？⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>如何保证在 msg.postDelay 情况下保证消息次序？⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>更新 UI 的方式有哪些 ⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、Activity.runOnUiThread(Runnable)<br>
+2、View.post(Runnable)，View.postDelay(Runnable, long)<br>
+3、Handler<br>
+4、AsyncTask<br>
+5、Rxjava<br>
+6、LiveData</p>
+<blockquote>
+<p>线程、Handler、Looper、MessageQueue 的关系？⭐⭐⭐⭐</p>
+</blockquote>
+<p>一个线程对应一个 Looper，同时对应一个 MessageQueue，对应多个 Handler</p>
+<blockquote>
+<p>多个线程给 MessageQueue 发消息，如何保证线程安全？⭐⭐⭐</p>
+</blockquote>
+<p>插入 Message 的时候使用 synchronized 机制加锁</p>
+<blockquote>
+<p>View.post 和 Handler.post 的区别？⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>你知道 IdleHandler 吗？⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h3 id="9-handlerthread"><a class="markdownIt-Anchor" href="#9-handlerthread">#</a> 9、HandlerThread</h3>
+<blockquote>
+<p>HandlerThread 是什么？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>HandlerThread 是 Google 封装好的一个类，它的内部有自己的 Looper 对象，可以进行 Loop 轮询，用于执行多个耗时操作，而不需要多次开启线程，本质是使用 Handler 和 Looper 实现的。HandlerThread 需要配合 Handler，使用只能作为子线程使用。</p>
+<blockquote>
+<p>HandlerThread 原理和使用场景？⭐⭐⭐⭐</p>
+</blockquote>
+<p>需要在线程中使用 Handler 异步消息机制，或者需要实现子线程和子线程之间的通讯（Handler 是主线程和子线程之间的通讯），那么就可以用 HandlerThread。</p>
+<h3 id="10-asynctask"><a class="markdownIt-Anchor" href="#10-asynctask">#</a> 10、AsyncTask</h3>
+<blockquote>
+<p>AsyncTask 是什么？能解决什么问题 ⭐⭐⭐⭐</p>
+</blockquote>
+<p>AsyncTask 是一个轻量级的异步任务类，可以在线程池里执行比较耗时的后台任务，然后把执行的进度和最后的结果传递给主进程，并在主进程中更新 UI</p>
+<blockquote>
+<p>给我谈谈 AsyncTask 的三个泛型参数作用以及它的一些方法作用。⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>给我说说 AsyncTask 的原理。⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>你觉得 AsyncTask 有不足之处吗？有何使用注意事项？⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h3 id="11-intentservice"><a class="markdownIt-Anchor" href="#11-intentservice">#</a> 11、IntentService</h3>
+<blockquote>
+<p>IntentService 是什么？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>IntentService 其实是继承与 Service 的类，内部是由 HandlerThread 实现。常用于处理异步请求，处理完子线程的耗时操作后，会自动执行 stopService ()。</p>
+<blockquote>
+<p>IntentService 原理和使用场景？⭐⭐⭐⭐</p>
+</blockquote>
+<p>适合多个任务需要按顺序，适用更高优先级的的后台任务，不容易被系统杀死的使用场景，比如离线下载场景，后台下载场景</p>
+<blockquote>
+<p>IntentService 和 Service 的区别 ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、Service 不是单独的线程，如果在 onStartCommand () 中执行耗时操作可能发生 ANR，IntentService 会创建一个工作线程来处理多线程任务<br>
+ 2、Service 长期存在后台，结束需要主动调用 stopSelft () 来结束服务，而 IntentService 会在任务完成后默认调用 stopSelft () 直接退出<br>
+ 3、两者都可以是使用 startService () 启动，但 IntentService 不能 onBind ()</p>
+<h3 id="12-fragment"><a class="markdownIt-Anchor" href="#12-fragment">#</a> 12、Fragment</h3>
+<blockquote>
+<p>Fragment 是什么？和 Activity 的联系？生命周期如何？⭐⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>解释：Fragment 翻译为 “片段，破片”，可以理解为 “显示在 Activity 中的 Activity”，为解决 Android 碎片化而生。它可以作为一个 Activity 界面中独立的子界面，拥有自己的生命周期，也可以接受用户的触摸事件。我们可以在一个 Activity 界面上添加多个 Fragment 子界面，并且每个 Fragment 都可以动态的添加、删除、替换</p>
+<blockquote>
+<p>Activity 和 Fragment 之间如何通讯？Fragment 和 Fragment 之间如何通讯？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>Fragment 的回退栈了解吗？⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>Fragment 的使用方式⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>你有遇到过哪些关于 Fragment 的问题，如何处理的？⭐⭐⭐</p>
+</blockquote>
+<h3 id="13-binder"><a class="markdownIt-Anchor" href="#13-binder">#</a> 13、Binder</h3>
+<blockquote>
+<p>请介绍什么是 Binder 机制⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>Binder 是 Android 中的一种跨进程通信机制，采用服务端 / 客户端结构，主要包含服务端、客户端、ServiceManager、Binder 驱动 4 大部分<br>
+ Android 跨进程通信方法：<br>
+1、共享内存：通过共享缓冲区直接映射到各个进程的虚拟地址空间，速度快。但实现比较复杂，进程间的同步问题操作系统无法实现，必须各进程利用同步工具解决；<br>
+2、消息队列：提供了一种从一个进程向另一个进程发送一个数据块的方法，但需要进行 2 次数据拷贝，不适合频繁或者数据量大的情况；<br>
+3、管道：分为有名 / 无名管道，在创建时分配一个 page 大小的内存，缓存区大小比较有限；<br>
+4、信号量：一般作为一种锁机制，用于进程 / 线程同步；<br>
+5、信号：更适合作为进程中断控制，而非数据交换；<br>
+6、Socket/LocalSocket：允许位于同一主机（计算机）或使用网络连接起来的不同主机上的应用程序之间交换数据；<br>
+7、Binder：Binder 是 Android 中的一种跨进程通信机制；<br>
+8、匿名共享内存：在 Android 系统中，提供了独特的匿名共享内存子系统 Ashmem (Anonymous Shared Memory)，它利用了 Linux 的 tmpfs 文件系统（一种可以基于 RAM 或是 SWAP 的高速文件系统）来实现不同进程间的内存共享。有两个特点：能够辅助内存管理系统来有效地管理不再使用的内存块；通过 Binder 进程间通信机制来实现进程间的内存共享；<br>
+9、File：通过文件进行多进程通信用法简单，但不适合高并发情况；<br>
+10、ContentProvider：Android 四大组件之一，常用于进程间数据共享，特别是一对多的情况，不过受限于 AIDL；<br>
+11、Bundle：很常见也很常用，但只能传输 Bundle 支持的数据类型，同样不适合大量数据的传输；</p>
+<blockquote>
+<p>请介绍 Binder 机制流程 ⭐⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>Binder 机制需要多少次内存拷贝 ⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>Android 有很多跨进程通信方法，为何选择 Binder？⭐⭐⭐</p>
+</blockquote>
+<p>1、性能：管道、消息队列、Socket 都需要 2 次数据拷贝 (即数据先从发送方缓存区拷贝到内核开辟的缓存区中，然后再从内核缓存区拷贝到接收方缓存区)，而 Binder 只要 1 次（可见第 3 节分析），且 Binder 相对 Socket 方法也更加高效，Socket 主要用于跨网络的进程间通讯，传输的效率比较低。当然共享内存 1 次数据拷贝都不需要，因此就性能而言，共享内存高于 Binder；<br>
+2、安全：Android 系统为每个应用都分配各自的 UID 以鉴别不同进程。Binder 会验证权限，鉴定 UID/PID 来验证身份，保证了进程通信的安全性；<br>
+3、稳定：共享内存 1 次数据拷贝都不需要，但实现的方法比较复杂，并且需要做好进程同步，容易出现死锁或者资源竞争，稳定性差。而 Binder 基于 C/S 架构，客户端和服务端彼此独立，稳定性强</p>
+<h3 id="14-aidl"><a class="markdownIt-Anchor" href="#14-aidl">#</a> 14、AIDL</h3>
+<blockquote>
+<p>请介绍什么是 AIDL⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>AIDL 全称 Android Interface Definition Language，也就是 Android 接口定义语言。因为 AIDL 的文件内容都是只有定义，而没有真正的实现。设计了这门语言是为了方便实现跨进程通讯，AIDL 文件的后缀是 “.aidl“</p>
+<blockquote>
+<p>有几种 AIDL 文件？⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>一个程序 AIDL 文件的数量？ ⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>你有没有使用过 AIDL？谈谈你如何实现的？ ⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>知道 AIDL 语法中的定向 tag 吗？⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>你能不能简单描述 AIDL 实现的原理？⭐⭐⭐</p>
+</blockquote>
+<h3 id="15-sharedpreferences"><a class="markdownIt-Anchor" href="#15-sharedpreferences">#</a> 15、SharedPreferences</h3>
+<p>SharedPreferences 是基于 key-value 键值对生成的一个 xml 文件，保存在 /data/data/packageName/shared_prefs 目录下，适合保存少量数据，且数据格式相对简单。SharedPreferences 本身是一个接口，可以通过 getSharedPreferences () 获取实例。</p>
+<blockquote>
+<p>SharedPreference 是线程安全的吗？⭐⭐⭐</p>
+</blockquote>
+<p>SP 的读写操作是线程安全的，内部用了很多 synchronized 锁来实现线程同步，但进程不安全，Google 官方推荐使用 ContentProvider 来实现 SharedPreference 的进程同步</p>
+<blockquote>
+<p>SharedPreference 的 apply 和 commit 的区别？commit 一定会在主线程操作嘛？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>修改完内容后，在提交的时候分为 commit 和 apply，两者都会先把修改保存到内存，只不过 apply 是异步写磁盘，而 commit 可能是同步写磁盘也可能是异步写磁盘。commit 不一定在主线程执行。</p>
+<blockquote>
+<p>SharedPreferences 是如何初始化的，它会阻塞主线程吗？⭐⭐⭐</p>
+</blockquote>
+<p>SharedPreferencesImpl 实例化过程会启动子线程从磁盘读取 xml 文件内容，读取时因是在子线程运行，所以不会阻塞主线程，但如果此时没读取完就开始获取或者修改数值，就会引起主线程阻塞</p>
+<blockquote>
+<p>每次获取 SP 对象真的会很慢吗？⭐⭐⭐</p>
+</blockquote>
+<p>一个应用有可能有多个 SP 的 xml 文件，实例一旦加载到内存后就一直保存在内存，直到这个进程销毁。但也因此如此，在 SharedPreferencesImpl 初始化的过程中会产生大量的临时对象，导致频繁 GC，引起界面卡顿，同时占用大量内存，因此大量数据时不建议用 SP。好处就是每次获取 SP 对象都很快。</p>
+<blockquote>
+<p>在使用时需要注意哪些问题，以及有什么优化点呢？⭐⭐⭐⭐</p>
+</blockquote>
+<p>SP 用于轻量数据存储操作，就非常的合适，大量数据时不建议用 SP，有助于减少卡顿 / ANR。JSON 或者 HTML 也不建议用 SP，应该直接用 JSON</p>
+<h3 id="16-线程池"><a class="markdownIt-Anchor" href="#16-线程池">#</a> 16、线程池</h3>
+<blockquote>
+<p>线程池的种类⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>所谓线程池就是事先创建一系列线程，把它们放在一个容器里，使用的时候直接从池子里拿线程，而不需要重新去 new 一个<br>
+核心线程：当该线程处于闲置时间也不会回收<br>
+非核心线程：等待时间超过 keepAliveTime 设定的时间就会被回收，核心线程需要执行 threadPoolExecutor.allowCoreThreadTimeOut (true) 后超过时间才会被回收<br>
+ 1、FixThreadPool：线程数量固定的线程池，只有核心线程（用于正规服务器）<br>
+2、SingleThreadPool：单例线程池，任意时间内池中只有一个线程<br>
+ 3、CachedThreadPool：无界可自动回收线程池，核心线程数设置为 0，该线程池里所有的线程一旦处于闲置时间超过 60 秒就会被自动回收<br>
+ 4、ScheduledThreadPool：周期任务线程池，核心线程数固定，非核心线程则没有限制数量，非核心线程闲置时立刻回收</p>
+<blockquote>
+<p>线程池的优点⭐⭐⭐⭐</p>
+</blockquote>
+<p>多次复用、最大并发数可控制、能够对线程进行管理，并提供定时执行以及定间隔循环执行等功能</p>
+<blockquote>
+<p>平时当中使用案例⭐⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>ThreadPoolExecutor 类有了解吗？⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h2 id="第三部分view相关篇"><a class="markdownIt-Anchor" href="#第三部分view相关篇">#</a> 第三部分：View 相关篇</h2>
+<h3 id="17-activity-window-decorview以及viewroot层级关系"><a class="markdownIt-Anchor" href="#17-activity-window-decorview以及viewroot层级关系">#</a> 17、Activity、Window、DecorView 以及 ViewRoot 层级关系</h3>
+<blockquote>
+<p>请讲述 Activity、Window、DecorView 以及 ViewRoot 之间的层级关系⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>DecorView 什么时候可见？⭐⭐⭐⭐</p>
+<h3 id="18-触摸事件分发机制"><a class="markdownIt-Anchor" href="#18-触摸事件分发机制">#</a> 18、触摸事件分发机制</h3>
+<blockquote>
+<p>请介绍什么是事件分发机制，以及对应流程⭐⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>谈谈你对 MotionEvent 的认识？Cancel 事件是什么情况下触发的⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>OnTouchListener &amp; OnTouchEvent &amp; OnClickListener 三者之间的关系⭐⭐⭐⭐</p>
+</blockquote>
+<h3 id="19-view绘制流程"><a class="markdownIt-Anchor" href="#19-view绘制流程">#</a> 19、View 绘制流程</h3>
+<blockquote>
+<p>请介绍 View 的三大绘制流程 ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>你知道 View 绘制前的准备流程吗？⭐</p>
+</blockquote>
+<blockquote>
+<p>什么是 MeasureSpec？⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>测量模式有哪三种？⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>为什么有时候 getMeasuredWidth 获取值为 0？⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>绘制的顺序是怎么样？⭐⭐</p>
+</blockquote>
+<h3 id="20-自定义view"><a class="markdownIt-Anchor" href="#20-自定义view">#</a> 20、自定义 View</h3>
+<blockquote>
+<p>自定义 View 的流程 ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>自定义 View 需要重写哪些函数？说说你在自定义 View 时常常重写的一些方法？ ⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>自定义 View 的种类有哪些？给我说说你之前项目中的案例。⭐⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>说说自定义 View 中如何自定义属性？⭐⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>自定义 View 如何处理 padding？⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>自定义 View 效率高于 xml 布局文件吗？⭐⭐</p>
+</blockquote>
+<blockquote>
+<p>自定义 View 什么时候需要处理 wrap_content 属性？怎么处理？⭐</p>
+</blockquote>
+<h2 id="第四部分android进阶篇"><a class="markdownIt-Anchor" href="#第四部分android进阶篇">#</a> 第四部分：Android 进阶篇</h2>
+<h3 id="21-序列化"><a class="markdownIt-Anchor" href="#21-序列化">#</a> 21、序列化</h3>
+<blockquote>
+<p>序列化是什么？序列化的作用？什么时候需要序列化？ ⭐⭐⭐⭐</p>
+</blockquote>
+<p>对象转换为字节流便于存储且便于传输<br>
+ 1、进行网络传输：将对象或者信息数据转换为字节流格式，特别是 Base64 格式，并通过网络传输给其他人<br>
+ 2、本地永久性存储：将对象转换为字节流并存放于内存，等到需要用到该对象的时候，再从内存读取字节流并再次构建出该对象<br>
+ 3、进行 IPC 传输：如需要将某个对象的信息传输给其他的进程，则需要先进行序列化，传输到其他进程后，再将其反序列化构建出原来的对象； 那么，针对将对象转换为字节流的过程称之为 “序列化”，而将字节流再次构建为对象的则是 “反序列化”</p>
+<blockquote>
+<p>Android 中序列化方式有几种？说说它们的区别。⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、Serializable：Java 自带的序列化方法，通过实现 Serializable 接口来实现序列化。内部实现原理是通过 Java 的反射机制，该机制效率相对低，同时会产生很多临时对象，因此就需要频繁地进行垃圾回收<br>
+ 2、Parcelable：安卓专用的序列化方式，性能比 Serializable 高出 10 多倍，原理是把对象分解为 Intent 支持的数据类型，并通过 Intent 进行传输，其数据可以保存在内存中，相对于 Serializable 将数据保存在磁盘，效率自然更高</p>
+<blockquote>
+<p>Bunder 传递对象为什么需要序列化？⭐⭐⭐</p>
+</blockquote>
+<p>因为 bundle 传递数据时只支持基本数据类型，所以在传递对象时，需要先将对象进行序列化，转换成可存储或可传输的字节流</p>
+<h3 id="22-jnindk"><a class="markdownIt-Anchor" href="#22-jnindk">#</a> 22、JNI/NDK</h3>
+<blockquote>
+<p>什么是 JNI? 它主要用来干什么。 ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>JNI（Java Native Interface）就是 Java 本地化接口，JNI 作为中间件可以让 Java 代码与本地系统的 C/C<ins> 代码做交互。<br>
+NDK（Native Development Kit），翻译过来是 “本地开发工具”，可以理解为 Android 实现 JNI 的一种工具，通过该工具打包 C/C</ins> 动态库并自动打包进 APK/AAR 中</p>
+<blockquote>
+<p>Java 声明的 Native 方法如何和 Native 层的 Native 函数进行绑定的？（也就是介绍两种注册方法）⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、静态注册的原理是：根据函数名建立 Java 方法和 JNI 函数的一一对应关系<br>
+ 2、动态注册的原理是通过使用 JNINativeMethod 结构来保存 Java 层声明的 native 方法和 Native 层函数的关联关系，直接告 Java 层声明的 native 方法其在 Native 层中对应函数的指针</p>
+<blockquote>
+<p>JNI 如何实现数据传递？⭐⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>如何全局捕获 Native 发生的异常？⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>JNIEnv 与 JavaVM 的关系⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、Android 每个进程只有一个 JavaVM 虚拟机对象，但可以有多个线程，当新线程第一次调用 JNI 函数时，虚拟机会给该线程生成一个 JNIEnv 指针。所以 JNIEnv 是线程局部存储，保证多线程之间的 JNI 通讯都是独立的。因此一个进程只有一个 JavaVM，但可能有多个 JNIEnv；<br>
+2、JNIEnv 内部的函数执行环境来源于 Dalvik 虚拟机；<br>
+当本地的 C/C++ 代码想要获得当前线程所想要使用的 JNIEnv 时，可以使用 Dalvik VM 对象的 JavaVM* jvm-&gt;GetEnv () 方法，该方法会返回当前线程所在的 JNIEnv*；<br>
+3、Java 的 dex 字节码和 C/C++ 的 .so 同时运行 Dalvik VM 之内，共同使用一个进程空间</p>
+<blockquote>
+<p>C 和 C++ 的 JNIEnv 的区别 ⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>JNI 项目配置和数据映射 ⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h3 id="23-设计模式使用案例"><a class="markdownIt-Anchor" href="#23-设计模式使用案例">#</a> 23、设计模式使用案例</h3>
+<blockquote>
+<p>说说设计模式的六大原则。⭐⭐⭐</p>
+</blockquote>
+<p>1、单一职责原则：所谓职责是指类变化的原因，即一个类只负责一项职责，将一组相关性很高的函数、数据封装到一个类中<br>
+ 2、开闭原则：对于扩展是开放的，对于修改是关闭的，对模块行为进行扩展时，不必改动模块的源代码<br>
+ 3、里氏替换原则：使用 “抽象 (Abstraction)” 和 “多态 (Polymorphism)” 将设计中的静态结构改为动态结构，维持设计的封闭性。任何基类可以出现的地方，子类一定可以出现。在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常，反过来则不成立。在程序中尽量使用基类类型来对对象进行定义，而在运行时再确定其子类类型，用子类对象来替换父类对象。<br>
+4、依赖倒置原则：高层次的模块不应该依赖于低层次的模块，他们都应该依赖于抽象。要求对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块间的耦合（各个模块之间相互传递的参数声明为抽象类型，而不是声明为具体的实现类）。<br>
+5、接口隔离原则：一个类对另一个类的依赖应该建立在最小的接口上。其原则是将非常庞大的、臃肿的接口拆分成更小的更具体的接口。<br>
+6、迪米特原则：又叫作最少知识原则，一个软件实体应当尽可能少地与其他实体发生相互作用。一个类应该对自己需要耦合或调用的类知道得最少，不关心被耦合或调用的类的内部实现，只负责调用你提供的方法。</p>
+<blockquote>
+<p>请简要谈一谈单例模式？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>详见 Java 补漏</p>
+<blockquote>
+<p>请列出几种常见的工厂模式并说明它们的用法？⭐⭐⭐⭐</p>
+</blockquote>
+<p>详见 Java 补漏</p>
+<blockquote>
+<p>静态代理和动态代理的区别，什么场景使用？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>静态代理：代理类和目标类在代码中是确定的，因此称为静态。可以在不修改目标对象功能的前提下，对目标功能进行扩展<br>
+动态代理：也叫 JDK 代理或接口代理，特点有<br>
+ 1、代理对象不需要实现接口<br>
+ 2、代理对象的生成是利用 JDK 的 API 动态的在内存中构建代理对象<br>
+ 3、能在代码运行时动态地改变某个对象的代理，并且能为代理对象动态地增加方法、增加行为</p>
+<blockquote>
+<p>谈一谈责任链模式的使用场景？⭐⭐⭐</p>
+</blockquote>
+<p>在安卓开发中随处可见，最经典的是触摸事件、按键事件的传递。这些触摸事件会一直传递下去，直到事件被消费为止</p>
+<blockquote>
+<p>请讲讲你会使用的一些设计模式？⭐⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>能否给我说说 Android 中至少 3 个用到设计模式的例子？ ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>单例模式（Handle Message）、抽象工厂模式（线程池构造）、观察者模式（ContentObserver）、责任链模式、装饰模式（ContextWrapper）</p>
+<h3 id="24-apk启动流程"><a class="markdownIt-Anchor" href="#24-apk启动流程">#</a> 24、APK 启动流程</h3>
+<blockquote>
+<p>你知道桌面点击应用图标到应用显示期间系统实现了什么流程吗？⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、点击桌面 App 图标，Launcher 进程采用 Binder 跨进程机制向 system_server 进程发起 startActivity 请求；<br>
+2、system_server 进程接收到请求后，向 Zygote 进程发送创建进程的请求，Zygote 进程 fork 出新的子进程，即新启动的 App 进程；<br>
+3、App 进程，通过 Binder 机制向 sytem_server 进程发起 attachApplication 请求（绑定 Application）；<br>
+4、system_server 进程在收到请求后，进行一系列准备工作后，再通过 binder 机制向 App 进程发送 scheduleLaunchActivity 请求；<br>
+5、App 进程的 binder 线程（ApplicationThread）在收到请求后，通过 handler 向主线程发送 LAUNCH_ACTIVITY 消息。主线程在收到 Message 后，通过发射 6、机制创建目标 Activity，并回调 Activity.onCreate ()/onStart ()/onResume () 等方法，经过 UI 渲染结束后便可以看到 App 的主界面。</p>
+<blockquote>
+<p>冷启动和热启动的区别 ⭐⭐</p>
+</blockquote>
+<p>冷启动：重新分配一个进程<br>
+热启动：应用虽然会退出，但是该应用的进程是依然会保留在后台</p>
+<blockquote>
+<p>桌面点击启动 APP 和从另一个程序跳转过去有什么区别？⭐⭐</p>
+</blockquote>
+<p>两种方法的原理都是通过 startActivity () 方法，唯一的区别在于桌面点击启动 APP 时的 intent 的 action 相对单一，而从另一个程序跳转或者启动的样式可能更多种</p>
+<h3 id="25-mvc-mvp-mvvm"><a class="markdownIt-Anchor" href="#25-mvc-mvp-mvvm">#</a> 25、MVC、MVP、MVVM</h3>
+<blockquote>
+<p>说说你对 MVC、MVP、MVVM 的理解，他们有什么区别和联系，如何演变的？ ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、MVC<br>
+（1）View：界面相关，将计人脸识别系统 UI 界面相关代码抽离出来，对应于 xml 布局文件<br>
+（2）Controller：控制相关，将和 UI 界面操作相关以及判断相关的业务逻辑也抽离出来，比如判断用户是否输入姓名了，没有输入则不会开始采集用户照片等，对应于 Activity<br>
+（3）Model：数据相关，具体的性别识别算法运算等较为复杂的运算，本地数据的维护等<br>
+在实际的 Android 开发中，View 层对应 xml 布局文件，其实能做的事情特别少，实际上关于该布局文件中的数据绑定的操作，事件处理的代码都在 Activity 中，造成了 Activity 既像 View 又像 Controller，使得 Activity 变得臃肿</p>
+<p>2、MVP<br>
+ 在 MVC 的基础上，用 Presenter 代替 Controller：<br>
+（1）View：不仅负责 UI 界面相关操作，还要负责用户交互，相当于 Activity<br>
+（2）Model：依然主要负责数据处理<br>
+（3）Presenter：负责 View 和 Model 之间的交互</p>
+<p>3、MVVM<br>
+（1）Model：和 MVP 中的 Model 一样，还是用来处理数据的；<br>
+（2）View：还是用来更新和处理 UI 界面以及和用户交互，相当于 Activity。和 MVP 里的 View 的区别在于，View 界面的更新从由 Presenter 驱动，变成了自动监听数据，随着数据变化而自动更新；<br>
+（3）ViewModel：Model 和 View 的中介，处理逻辑中转任务的媒介。一个 View 可以绑定多个不同的 ViewModel，一个 ViewModel 也可以被多个 View 同时绑定。</p>
+<blockquote>
+<p>MVVM 的优点和缺点 ⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、优点<br>
+（1）数据和布局双向绑定，我们只需要关心数据数值的改变，而不再需要操心 findViewById 和 setText () 等繁复的代码的工作<br>
+（2）一个 View 可以绑定多个 ViewModel，一个 ViewModel 可以供多个 View 绑定，提高复用性和灵活性<br>
+（3）自带生命周期管理，不用担心因为生命周期而出现 bug</p>
+<p>2、缺点：<br>
+（1）View 和 ViewModel 独立，如果出现 bug 定位问题较难<br>
+（2）Binding 类的生成可能需要多次 Rebuild 的操作，若 Binding 类过多，则编译工作会耗时很大<br>
+（3）需要提前设置好数据监听，如果数值多，那就要设置很多监听<br>
+（4）如果 ViewModel 层数据未改变，但却强制要 View 层改变 UI 控件时，就比较麻烦</p>
+<blockquote>
+<p>为什么 Activity 旋转屏幕后 ViewModel 可以恢复数据 ⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>ViewModel 的实例缓存到哪儿了 ⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>什么时候 ViewModel#onCleared () 会被调用 ⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h3 id="26-缓存机制"><a class="markdownIt-Anchor" href="#26-缓存机制">#</a> 26、缓存机制</h3>
+<blockquote>
+<p>你了解 Android 中的缓存机制吗？⭐⭐⭐⭐</p>
+</blockquote>
+<p>主要为 LRU，有两种形式：LruCache 和 DisLruCache，前者实现了内存缓存，后者实现了磁盘缓存</p>
+<blockquote>
+<p>LruCache 的源码看过吗？⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>还有用过哪些缓存工具？⭐⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h3 id="27-apk打包流程和反编译"><a class="markdownIt-Anchor" href="#27-apk打包流程和反编译">#</a> 27、APK 打包流程和反编译</h3>
+<blockquote>
+<p>请讲述一下 APK 打包的流程？ ⭐⭐⭐⭐<br>
+使用过哪些反编译的工具？⭐⭐⭐</p>
+</blockquote>
+<h3 id="28-注解"><a class="markdownIt-Anchor" href="#28-注解">#</a> 28、注解</h3>
+<blockquote>
+<p>你是否了解注解？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>注解是 JDK 5 引入的，作为代码里的特殊标记。这些标记可以在代码编译、代码运行时执行特定的操作。注解和 public、static 等修饰符一样，都是程序元素的一部分。开发人员可以在不修改原来代码逻辑的情况下，通过注解来做到：<br>
+1、降低项目的耦合度<br>
+ 2、自动完成一些规律性的代码<br>
+ 3、自动生成 java 代码，减轻开发者的工作量<br>
+总结为一句话，注解就是用来简化代码，提高开发效率。如 @Override 表明函数是重写的，@Deprecated 表明函数被废弃</p>
+<blockquote>
+<p>你知道元注解吗？⭐⭐⭐</p>
+</blockquote>
+<p>用来解释其它自定义注解的注解，也就是元注解</p>
+<blockquote>
+<p>知道如何使用自定义注解吗？有哪些实现方法？⭐⭐⭐⭐<br>
+具体说一下编译时注解的实现思路⭐⭐⭐⭐<br>
+如何使用注解代替枚举？⭐⭐⭐<br>
+你知道哪些常用的注解？⭐⭐⭐⭐</p>
+</blockquote>
+<h2 id="第五部分android性能优化篇"><a class="markdownIt-Anchor" href="#第五部分android性能优化篇">#</a> 第五部分：Android 性能优化篇</h2>
+<h3 id="29-内存优化"><a class="markdownIt-Anchor" href="#29-内存优化">#</a> 29、内存优化</h3>
+<blockquote>
+<p>什么是 OOM、内存泄漏、内存抖动？如何发生的？ ⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、内存泄漏：当一个对象 A 在程序中已经打算释放了，但有其他对象持有对象 A 的强引用，导致对象 A 不能正常被系统回收，继续占用着内存，如此反复使实际可使用内存越来越小<br>
+ 2、内存溢出：当内存使用量超过了虚拟机分配给当前程序的最大值时，就会发生内存溢出。出现这种情况很可能是加载的资源太多，如加载大图片，或者分配了很大的数组等变量，或者是太多的内存泄漏最终导致内存溢出<br>
+ 3、内存抖动：当内存频繁分配和回收导致内存不稳定，就会出现内存抖动，它通常表现为 频繁 GC、内存曲线呈锯齿状</p>
+<blockquote>
+<p>Handler 导致的内存泄露你是如何解决的？ ⭐⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>知道如何定位内存泄漏吗？有什么工具？⭐⭐⭐⭐</p>
+</blockquote>
+<p>Android Studio 自带工具</p>
+<blockquote>
+<p>请至少例举出 5 种内存泄漏情况。⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>Handler 内存泄漏、非静态内部类的静态实例（依赖外部类）、资源性对象（比如文件、图片、Cursor 等）、WebView、集合只增不减、单例对象</p>
+<blockquote>
+<p>在 Android 中如何避免内存泄漏？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、减小对象本身的内存占用<br>
+ 2、内存对象复用：使用到相同的对象或者资源，如果已经创建，则尽量复用以减少内存使用</p>
+<blockquote>
+<p>谈谈你项目中内存优化的一些经验（开放题）⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h3 id="30-卡顿优化"><a class="markdownIt-Anchor" href="#30-卡顿优化">#</a> 30、卡顿优化</h3>
+<blockquote>
+<p>造成系统卡顿的根本原因 ⭐⭐⭐</p>
+</blockquote>
+<p>代码设计、内存占用、CPU 使用率、IO 操作等</p>
+<blockquote>
+<p>什么是 ANR ？导致原因有哪些？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>Application Not Respongding，简称 ANR，翻译为中文即是 “应用程序无响应”，导致的原因有：<br>
+1、主线程进行 IO 操作，引起阻塞<br>
+ 2、主线程执行耗时操作<br>
+ 3、主线程有错误操作，如 Thread.sleep 等直接导致主线程阻塞<br>
+ 4、执行速度缓慢的广播接收器<br>
+ 5、出现死锁<br>
+ 6、主线程使用 Binder 和另一个进程通讯，另一个进程需要很长时间才返回<br>
+ 7、主线程使用 SharedPrederence：SharedPrederence 调用 apply 方法，会创建一个等待锁放到 QueuedWork 中，并将真正数据持久化封装成一个任务放到异步队列中执行，任务执行结束会释放锁。Activity onStop 以及 Service 处理 onStop，onStartCommand 时，执行 QueuedWork.waitToFinish () 等待所有的等待锁释放。其实不管是 commit 还是 apply，都是在主线程进行 IO 操作，那么都是可能会产生 ANR 的</p>
+<blockquote>
+<p>如何避免发生 ANR ？⭐⭐⭐⭐</p>
+</blockquote>
+<p>避免 ANR 的核心就是主线程中少执行耗时的代码，以及避免 CPU 使用率太高或者内存占用太高</p>
+<blockquote>
+<p>分别说说 Activity、BroadcastReceiver、Serice 最长可耗时时间为多少？⭐⭐⭐⭐⭐</p>
+</blockquote>
+<p>1、Activity 在 5 秒内无响应用户操作<br>
+ 2、BroadCastReceiver 在 10 秒内未执行完所设置的操作，如果应用在后台，则延长到 60 秒<br>
+ 3、Service 在 20 秒没有执行完操作，如果应用在后台，则延长到 200 秒</p>
+<blockquote>
+<p>谈谈你项目中避免 ANR 的一些经验（开放题）⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<blockquote>
+<p>有什么方法和工具可以分析 ANR ⭐⭐⭐</p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Marshwallen</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://onlie202.github.io/2024/03/14/Android%E5%8E%9F%E7%94%9F/">https://onlie202.github.io/2024/03/14/Android%E5%8E%9F%E7%94%9F/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Marshwallen</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Android/">
+                                    <span class="chip bg-color">Android</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, wechat, weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/03/14/Nginx/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/Nginx.png" class="responsive-img" alt="Nginx小记">
+                        
+                        <span class="card-title">Nginx小记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Marshwallen
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Nginx/">
+                        <span class="chip bg-color">Nginx</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/03/14/Flutter%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E6%88%98/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/flutter.png" class="responsive-img" alt="Flutter基础与实战">
+                        
+                        <span class="card-title">Flutter基础与实战</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Marshwallen
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Android/">
+                        <span class="chip bg-color">Android</span>
+                    </a>
+                    
+                    <a href="/tags/Flutter/">
+                        <span class="chip bg-color">Flutter</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="/about" target="_blank">Marshwallen</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/onlie202" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:onlie202@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=707390688" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 707390688" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+        <script type="text/javascript" src="/js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://onlie202.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="80"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

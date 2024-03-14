@@ -4,13 +4,29 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ubuntu 22.04 常用命令, Marshwallen">
-    <meta name="description" content="本文记录 Ubuntu 22.04 下一些常用的命令
-# SSH
-# 连接到服务器
-ssh marshwallen@172.20.20.144
-# 从服务器下载文件到指定目录（文件或文件夹）
-scp root@127.20.36.88:~/">
+    <meta name="keywords" content="Nginx小记, Marshwallen">
+    <meta name="description" content="# Nginx
+# 安装
+sudo apt install nginx
+# 项目路径
+
+
+
+路径
+类型
+作用
+
+
+
+
+/etc/nginx/
+文件夹
+nginx 的主要配置目录
+
+
+/etc/nginx/nginx.conf
+文件
+ngin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +38,7 @@ scp root@127.20.36.88:~/">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ubuntu 22.04 常用命令 | Marshwallen</title>
+    <title>Nginx小记 | Marshwallen</title>
     <link rel="icon" type="image/png" href="/medias/cat.png">
     
 
@@ -208,12 +224,12 @@ scp root@127.20.36.88:~/">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/ubuntu-minimalism-4k-ga.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/Nginx.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Ubuntu 22.04 常用命令</h1>
+                    <h1 class="description center-align post-title">Nginx小记</h1>
                 </div>
             </div>
         </div>
@@ -237,8 +253,8 @@ scp root@127.20.36.88:~/">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Ubuntu/">
-                                <span class="chip bg-color">Ubuntu</span>
+                            <a href="/tags/Nginx/">
+                                <span class="chip bg-color">Nginx</span>
                             </a>
                         
                     </div>
@@ -253,7 +269,7 @@ scp root@127.20.36.88:~/">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-03-01
+                    2024-03-14
                 </div>
                 
 
@@ -277,63 +293,51 @@ scp root@127.20.36.88:~/">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本文记录 Ubuntu 22.04 下一些常用的命令</p>
-<h2 id="ssh"><a class="markdownIt-Anchor" href="#ssh">#</a> SSH</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 连接到服务器</span>
-<span class="token function">ssh</span> marshwallen@172.20.20.144
-<span class="token comment"># 从服务器下载文件到指定目录（文件或文件夹）</span>
-<span class="token function">scp</span> root@127.20.36.88:~/test.zip ~/Desktop
-<span class="token function">scp</span> <span class="token parameter variable">-r</span> root@127.20.36.88:~/test ~/Desktop
-<span class="token comment"># 查看历史连接用户</span>
-<span class="token builtin class-name">cd</span> /var/log
-last
+                <h1 id="nginx"><a class="markdownIt-Anchor" href="#nginx">#</a> Nginx</h1>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装">#</a> 安装</h2>
+<p>sudo apt install nginx</p>
+<h2 id="项目路径"><a class="markdownIt-Anchor" href="#项目路径">#</a> 项目路径</h2>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>类型</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/nginx/</td>
+<td>文件夹</td>
+<td>nginx 的主要配置目录</td>
+</tr>
+<tr>
+<td>/etc/nginx/nginx.conf</td>
+<td>文件</td>
+<td>nginx 的主配置文件</td>
+</tr>
+<tr>
+<td>/etc/nginx/sites-available</td>
+<td>文件夹</td>
+<td>vhost 的配置存放目录（注意是存放）</td>
+</tr>
+<tr>
+<td>/etc/nginx/sites-enabled</td>
+<td>文件夹</td>
+<td>vhost 的配置生效目录（注意是生效）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令">#</a> 常用命令</h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 执行nginx配置文件的检测（此命令还有一个用法是当不知道nginx主配置在什么路径下时执行会输出配置文件路径）</span>
+<span class="token function">sudo</span> nginx <span class="token parameter variable">-t</span> 
+
+<span class="token comment"># 重载nginx配置文件，一般用于修改配置文件后让配置生效</span>
+<span class="token function">sudo</span> nginx <span class="token parameter variable">-s</span> reload 
+
+<span class="token comment"># WSL下可能需要这种形式重启/重载/启动/关闭</span>
+<span class="token function">sudo</span> <span class="token function">service</span> nginx restart<span class="token operator">|</span>stop<span class="token operator">|</span>start<span class="token operator">|</span>reload 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作">#</a> 文件操作</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 压缩</span>
-<span class="token function">tar</span> <span class="token parameter variable">-vcf</span> test.tar ./test
-<span class="token comment"># 解压</span>
-<span class="token function">tar</span> <span class="token parameter variable">-xvf</span> test.tar ./test
-<span class="token comment"># 列出文件夹及大小</span>
-<span class="token function">ls</span> <span class="token parameter variable">-l</span>
-<span class="token function">du</span> <span class="token parameter variable">-h</span> --max-depth<span class="token operator">=</span><span class="token number">1</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="环境变量"><a class="markdownIt-Anchor" href="#环境变量">#</a> 环境变量</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改</span>
-<span class="token function">vim</span> ~/.bashrc
-<span class="token comment"># 应用修改</span>
-<span class="token builtin class-name">source</span> ~/.bashrc
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="应用安装-更新"><a class="markdownIt-Anchor" href="#应用安装-更新">#</a> 应用安装、更新</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># apt安装</span>
-<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> xxx
-<span class="token comment"># apt卸载</span>
-<span class="token function">sudo</span> <span class="token function">apt-get</span> remove xxx
-<span class="token function">sudo</span> <span class="token function">apt-get</span> autoremove
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="conda"><a class="markdownIt-Anchor" href="#conda">#</a> Conda</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建环境</span>
-conda create <span class="token parameter variable">-n</span> xxx <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.7</span>
-<span class="token comment"># 激活环境</span>
-conda activate xxx
-<span class="token comment"># 查看conda列表</span>
-conda <span class="token function">env</span> list
-<span class="token comment"># 删除环境</span>
-conda <span class="token function">env</span> remove <span class="token parameter variable">-n</span> xxx
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="screen"><a class="markdownIt-Anchor" href="#screen">#</a> Screen</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建终端</span>
-<span class="token function">screen</span> 或 <span class="token function">screen</span> <span class="token parameter variable">-S</span> xxx
-<span class="token comment"># 查看终端</span>
-<span class="token function">screen</span> <span class="token parameter variable">-ls</span>
-<span class="token comment"># 恢复终端</span>
-<span class="token function">screen</span> <span class="token parameter variable">-r</span> xxx
-<span class="token comment"># 杀死终端</span>
-<span class="token function">screen</span> <span class="token parameter variable">-S</span> xxx <span class="token parameter variable">-X</span> quit 
-<span class="token comment"># 杀死前20个screen</span>
-<span class="token function">screen</span> -ls<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'NR>=2&amp;&amp;NR&lt;=6&#123;print $1&#125;'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'&#123;print "screen -S "$1" -X quit"&#125;'</span><span class="token operator">|</span><span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="实用命令"><a class="markdownIt-Anchor" href="#实用命令">#</a> 实用命令</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 把命令行输出保存到txt文件中</span>
-<span class="token function">sh</span> test.sh <span class="token operator">></span> output.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -360,7 +364,7 @@ conda <span class="token function">env</span> remove <span class="token paramete
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://onlie202.github.io/2024/03/01/Ubuntu-22-04-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">https://onlie202.github.io/2024/03/01/Ubuntu-22-04-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a>
+                    <a href="https://onlie202.github.io/2024/03/14/Nginx/">https://onlie202.github.io/2024/03/14/Nginx/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -398,8 +402,8 @@ conda <span class="token function">env</span> remove <span class="token paramete
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Ubuntu/">
-                                    <span class="chip bg-color">Ubuntu</span>
+                                <a href="/tags/Nginx/">
+                                    <span class="chip bg-color">Nginx</span>
                                 </a>
                             
                         </div>
@@ -445,16 +449,17 @@ conda <span class="token function">env</span> remove <span class="token paramete
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/03/01/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E8%AE%B0/">
+                <a href="/2024/03/14/Nginx/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/network.png" class="responsive-img" alt="零碎小记">
+                        <img src="/medias/featureimages/Nginx.png" class="responsive-img" alt="Nginx小记">
                         
-                        <span class="card-title">零碎小记</span>
+                        <span class="card-title">Nginx小记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -464,9 +469,9 @@ conda <span class="token function">env</span> remove <span class="token paramete
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -475,11 +480,12 @@ conda <span class="token function">env</span> remove <span class="token paramete
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Others/">
-                        <span class="chip bg-color">Others</span>
+                    <a href="/tags/Nginx/">
+                        <span class="chip bg-color">Nginx</span>
                     </a>
                     
                 </div>
@@ -493,12 +499,12 @@ conda <span class="token function">env</span> remove <span class="token paramete
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/03/01/Ubuntu-22-04-%E7%BB%B4%E6%8A%A4%E5%B0%8F%E8%AE%B0/">
+                <a href="/2024/03/14/Android%E5%8E%9F%E7%94%9F/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/ubuntu-minimalism-4k-ga.jpg" class="responsive-img" alt="Ubuntu 22.04 维护小记">
+                        <img src="https://developer.android.google.cn/images/cluster-illustrations/interop.svg" class="responsive-img" alt="Android原生">
                         
-                        <span class="card-title">Ubuntu 22.04 维护小记</span>
+                        <span class="card-title">Android原生</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -509,7 +515,7 @@ conda <span class="token function">env</span> remove <span class="token paramete
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-14
                             </span>
                         <span class="publish-author">
                             
@@ -522,8 +528,8 @@ conda <span class="token function">env</span> remove <span class="token paramete
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Ubuntu/">
-                        <span class="chip bg-color">Ubuntu</span>
+                    <a href="/tags/Android/">
+                        <span class="chip bg-color">Android</span>
                     </a>
                     
                 </div>

@@ -7,6 +7,9 @@
         <language>zh-CN</language>
         <pubDate>Fri, 01 Mar 2024 15:09:44 +0800</pubDate>
         <lastBuildDate>Fri, 01 Mar 2024 15:09:44 +0800</lastBuildDate>
+        <category>Nginx</category>
+        <category>Android</category>
+        <category>Flutter</category>
         <category>Ubuntu</category>
         <category>Others</category>
         <item>
@@ -68,8 +71,10 @@ conda &lt;span class=&#34;token function&#34;&gt;env&lt;/span&gt; remove &lt;spa
 &lt;span class=&#34;token comment&#34;&gt;# 杀死终端&lt;/span&gt;
 &lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-S&lt;/span&gt; xxx &lt;span class=&#34;token parameter variable&#34;&gt;-X&lt;/span&gt; quit 
 &lt;span class=&#34;token comment&#34;&gt;# 杀死前20个screen&lt;/span&gt;
-&lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; -ls&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;NR&gt;=2&amp;amp;&amp;amp;NR&amp;lt;=6&amp;#123;print $1&amp;#125;&#39;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;#123;print &#34;screen -S &#34;$1&#34; -X quit&#34;&amp;#125;&#39;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;sh&lt;/span&gt;
-&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;token function&#34;&gt;screen&lt;/span&gt; -ls&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;NR&gt;=2&amp;amp;&amp;amp;NR&amp;lt;=6&amp;#123;print $1&amp;#125;&#39;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;#123;print &#34;screen -S &#34;$1&#34; -X quit&#34;&amp;#125;&#39;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;sh&lt;/span&gt;&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;实用命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实用命令&#34;&gt;#&lt;/a&gt; 实用命令&lt;/h2&gt;
+&lt;pre class=&#34;line-numbers language-bash&#34; data-language=&#34;bash&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;token comment&#34;&gt;# 把命令行输出保存到txt文件中&lt;/span&gt;
+&lt;span class=&#34;token function&#34;&gt;sh&lt;/span&gt; test.sh &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; output.txt&lt;span aria-hidden=&#34;true&#34; class=&#34;line-numbers-rows&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
  ]]></description>
         </item>
         <item>
